@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<head>
+  <link rel="stylesheet" type="text/css" href="3rdparty/markdown.css">
+  <script src="3rdparty/marked.min.js"></script>
+  <script src="qrc:/qtwebchannel/qwebchannel.js"></script>
+  <link rel="stylesheet" href="3rdparty/default.min.css">
+  <script src="3rdparty/highlight.min.js"></script>
+
+  <style>
+    .wrapper-left {
+    float: left;
+    }
+
+    .wrapper-right {
+    float: right;
+    }
+
+    .table-contents {
+        background-color: #F9F9F9;
+        box-shadow: 0 5px 5px rgba(200, 200, 200, .5);
+        border-radius: 12px;
+        padding: 1em 1em;
+    }
+
+    .page-contents {
+        background-color: #F9F9F9;
+        box-shadow: 0 5px 5px rgba(200, 200, 200, .5);
+        border-radius: 12px;
+        padding: 0em 1em 1em 1em;
+        position: absolute;
+        display: none;
+    }
+
+    li.active {
+        font-weight: 400;
+    }
+
+    .highlight-content {
+        background-color: #F3F3F0;
+        box-shadow: 0 5px 5px rgba(200, 200, 200, .5);
+        border-radius: 12px;
+        padding: 1em 1em;
+    }
+
+    .exercise-content {
+        background-color: #15565233;
+        box-shadow: 0 5px 5px rgba(200, 200, 200, .5);
+        border-radius: 12px;
+        padding: 1em 1em;
+    }
+
+    .stuck-right{
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 360px;
+        height: 245px;
+        animation: fade-in-up .25s ease forwards;
+    }
+
+    .stuck-left{
+        position: fixed;
+        top: 40px;
+        left: 20px;
+        animation: fade-in-up .25s ease forwards;
+        display: block;
+    }
+
+    pre {
+      position : relative
+    }
+
+    pre button {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    pre:hover button {
+        display: inline-block;
+    }
+
+    button {
+      appearance: none;
+      background-color: #FAFBFC;
+      border: 1px solid rgba(27, 31, 35, 0.15);
+      border-radius: 6px;
+      box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+      box-sizing: border-box;
+      color: #24292E;
+      cursor: pointer;
+      display: inline-block;
+      font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      list-style: none;
+      padding: 6px 16px;
+      position: relative;
+      transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: middle;
+      white-space: nowrap;
+      word-wrap: break-word;
+    }
+
+    button.link {
+      background: none!important;
+      border: none;
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-weight: 300;
+      margin: 0 auto;
+      max-width: 48rem;
+      line-height: 1.45;
+      padding: 0rem;
+      color: #069;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: none;
+    }
+
+    button:hover {
+      background-color: #F3F4F6;
+      text-decoration: none;
+      transition-duration: 0.1s;
+    }
+
+    button:disabled {
+      background-color: #FAFBFC;
+      border-color: rgba(27, 31, 35, 0.15);
+      color: #959DA5;
+      cursor: default;
+    }
+
+    button:active {
+      background-color: #EDEFF2;
+      box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+      transition: none 0s;
+    }
+
+    button:focus {
+      outline: 1px transparent;
+    }
+
+    button:before {
+      display: none;
+    }
+
+    button:-webkit-details-marker {
+      display: none;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  </br>
+
+  <div class="wrapper-left">
+    <button class="button button-previous"> <input type="image" name="previous" src="images/icons/previousIcon_cropped.png" height="10"> Previous </button>
+  </div>
+  <div class="wrapper-right">
+    <button class="button button-next"> Next <input type="image" name="next" src="images/icons/nextIcon_cropped.png" height="10"> </button>
+  </div>
+
+  </br> </br> </br>
+
+  <div class="table-contents">
+    <p><strong>Tutorial Contents</strong></p>
+    <ol>
+        <li value="1"> <button class="link"> Title of Step 1 </button> : with short description </li>
+        <li value="2"> <button class="link"> Title of Step 2 </button> : with short description </li>
+    </ol>
+  </div>
+
+  </br>
+
+  <div id="placeholder"></div>
+
+  </br>
+
+  <div class="wrapper-left">
+    <button class="button button-previous"> <input type="image" name="previous" src="images/icons/previousIcon_cropped.png" height="10"> Previous </button>
+  </div>
+  <div class="wrapper-right">
+    <button class="button button-next"> Next <input type="image" name="next" src="images/icons/nextIcon_cropped.png" height="10"> </button>
+  </div>
+
+  </br> </br> </br>
+
+  <script>
+  'use strict';
+
+  // Convert markdown to html
+  var placeholder = document.getElementById('placeholder');
+  marked.setOptions({
+                    // highlight: function(code) {return hljs.highlightAuto(code).value;},
+                    mangle: false,
+                    headerIds: false
+                    })
+
+  function addPageContents() {
+                                // Contents
+                                var headers = document.querySelectorAll("h2, h3");
+                                var tables = document.getElementsByClassName("page-contents");
+                                if (tables.length == 0) {
+                                  var table = document.createElement("div");
+                                  table.className = "page-contents";
+                                } else {
+                                  var table = tables[0];
+                                  table.innerHTML = "";
+                                }
+                                table.innerHTML += "<p><strong>Page Contents</strong></p>";
+                                table.innerHTML += "<ul>";
+                                headers.forEach(header => {table.innerHTML += "<li class='section-list'>" + header.innerHTML + "</li>"})
+                                table.innerHTML += "</ul>";
+                                document.body.appendChild(table);
+                            }
+
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect()
+    const windowHeight = (window.innerHeight || document.documentElement.clientHeight)
+    const windowWidth = (window.innerWidth || document.documentElement.clientWidth)
+    const vertInView = (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0)
+    const horInView = (rect.left <= windowWidth) && ((rect.left + rect.width) >= 0)
+    return (vertInView && horInView)
+  }
+
+  var updateText = function(text) {
+                                    placeholder.innerHTML = marked.parse(text);
+
+                                    const exercises = placeholder.querySelectorAll("div.exercise-content");
+                                    exercises.forEach(div => {
+                                        var editor = document.createElement("button")
+                                        editor.classList.add('button-editor');
+                                        editor.innerHTML = "open editor"
+                                        div.append(editor)
+
+                                        var runSofa = document.createElement("button")
+                                        runSofa.classList.add('button-runSofa');
+                                        runSofa.innerHTML = "runSofa"
+                                        div.append(runSofa)
+                                    })
+
+                                    const codeblocks = placeholder.querySelectorAll("pre");
+                                    codeblocks.forEach(div => {
+                                        const copy = document.createElement("button")
+                                        copy.innerHTML = "Copy"
+                                        const innerText = div.children[0].innerHTML
+                                        copy.addEventListener("click", function() {
+                                                handleCopy(innerText);
+                                              }
+                                            );
+                                        div.append(copy)
+                                    })
+
+                                    addPageContents();
+
+                                    document.addEventListener("scroll", (event) => {
+                                      var videos = placeholder.querySelectorAll("video");
+                                      var tables = document.getElementsByClassName("page-contents");
+                                      videos.forEach(div => {
+                                          if (document.documentElement.scrollTop > 950) {
+                                            div.classList.add('stuck-right');
+                                            tables[0].classList.add('stuck-left');
+
+                                            // Highlight header in viewport
+                                            var sections = document.getElementsByClassName("section-list");
+                                            var headers = document.querySelectorAll("h2, h3");
+                                            for(var index=0; index < sections.length; index++) {
+                                                sections[index].classList.remove('active')
+                                            }
+                                            for(var index=0; index < sections.length; index++) {
+                                              if(isInViewport(headers[index])) {
+                                                    sections[index].classList.add('active');
+                                                    break;
+                                              }
+                                            }
+
+                                          } else if (document.documentElement.scrollTop < 450) {
+                                            div.classList.remove('stuck-right');
+                                            tables[0].classList.remove('stuck-left');
+                                          }
+                                        })
+                                    });
+                                  }
+
+  const copyToClipboard = str => {
+                                    const el = document.createElement("textarea") // Create a <textarea> element
+                                    el.value = str // Set its value to the string that you want copied
+                                    el.setAttribute("readonly", "") // Make it readonly to be tamper-proof
+                                    el.style.position = "absolute"
+                                    el.style.left = "-9999px" // Move outside the screen to make it invisible
+                                    document.body.appendChild(el) // Append the <textarea> element to the HTML document
+                                    const selected =
+                                      document.getSelection().rangeCount > 0 // Check if there is any content selected previously
+                                        ? document.getSelection().getRangeAt(0) // Store selection if found
+                                        : false // Mark as false to know no selection existed before
+                                    el.select() // Select the <textarea> content
+                                    document.execCommand("copy") // Copy - only works as a result of a user action (e.g. click events)
+                                    document.body.removeChild(el) // Remove the <textarea> element
+                                    if (selected)
+                                    {
+                                      // If a selection existed before copying
+                                      document.getSelection().removeAllRanges() // Unselect everything on the HTML document
+                                      document.getSelection().addRange(selected) // Restore the original selection
+                                    }
+                                  }
+
+  function handleCopy(innerText) { copyToClipboard(innerText) };
+
+  new QWebChannel(qt.webChannelTransport,
+                  function(channel)
+                      {
+                          function updateExerciseButtons() {
+                              var rbuttons = document.querySelectorAll("button.button-runSofa");
+                              rbuttons.forEach(div => {
+                                  div.addEventListener( "click", function(){channel.objects.buttonBridge.runSofaSlot()} );
+                              })
+
+                              var ebuttons = document.querySelectorAll("button.button-editor");
+                              ebuttons.forEach(div => {
+                                  div.addEventListener( "click", function(){channel.objects.buttonBridge.editorSlot()} );
+                              })
+                          }
+
+                          var content = channel.objects.content;
+                          updateText(content.text);
+                          content.textChanged.connect(updateText);
+
+                          content.textChanged.connect(updateExerciseButtons);
+
+                          // Connect buttons to corresponding slot
+                          var pbuttons = document.querySelectorAll("button.button-previous");
+                          pbuttons.forEach(div => {
+                              div.addEventListener("click", function(){channel.objects.buttonBridge.previousSlot()});
+                          })
+
+                          var nbuttons = document.querySelectorAll("button.button-next");
+                          nbuttons.forEach(div => {
+                              div.addEventListener("click", function(){channel.objects.buttonBridge.nextSlot()});
+                          })
+
+                          var links = document.querySelectorAll("button.link");
+                          links.forEach(div => {
+                              div.addEventListener("click", function(){channel.objects.buttonBridge.setFromIndexSlot(div.parentNode.value - 1)});
+                          })
+
+                          updateExerciseButtons();
+                      }
+                  );
+
+  </script>
+</body>
+</html>

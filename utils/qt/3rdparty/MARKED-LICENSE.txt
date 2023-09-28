@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>MARKED-LICENSE.txt « 3rdparty « resources « markdowneditor « webenginewidgets « examples - qt/qtwebengine.git - Qt WebEngine
+</title>
+<meta name='generator' content='cgit v1.2.3'/>
+<meta name='robots' content='index, nofollow'/>
+<link rel='stylesheet' type='text/css' href='/cgit.css'/>
+<link rel='shortcut icon' href='/favicon.ico'/>
+<link rel='alternate' title='Atom feed' href='https://code.qt.io/cgit/qt/qtwebengine.git/atom/examples/webenginewidgets/markdowneditor/resources/3rdparty/MARKED-LICENSE.txt?h=5.15' type='application/atom+xml'/>
+<link rel='vcs-git' href='git://code.qt.io/qt/qtwebengine.git' title='qt/qtwebengine.git Git repository'/>
+<link rel='vcs-git' href='http://code.qt.io/qt/qtwebengine.git' title='qt/qtwebengine.git Git repository'/>
+<link rel='vcs-git' href='https://code.qt.io/qt/qtwebengine.git' title='qt/qtwebengine.git Git repository'/>
+</head>
+<body>
+<div id='cgit'><table id='header'>
+<tr>
+<td class='logo' rowspan='2'><a href='/cgit/'><img src='/logo_qt.png' alt='cgit logo'/></a></td>
+<td class='main'><a href='/cgit/'>index</a> : <a title='qt/qtwebengine.git' href='/cgit/qt/qtwebengine.git/'>qt/qtwebengine.git</a></td><td class='form'><form method='get'>
+<select name='h' onchange='this.form.submit();'>
+<option value='0.9'>0.9</option>
+<option value='5.10'>5.10</option>
+<option value='5.11'>5.11</option>
+<option value='5.12'>5.12</option>
+<option value='5.13'>5.13</option>
+<option value='5.14'>5.14</option>
+<option value='5.15' selected='selected'>5.15</option>
+<option value='5.15.10'>5.15.10</option>
+<option value='5.15.11'>5.15.11</option>
+<option value='5.15.12'>5.15.12</option>
+<option value='5.15.13'>5.15.13</option>
+<option value='5.15.14'>5.15.14</option>
+<option value='5.15.15'>5.15.15</option>
+<option value='5.15.3'>5.15.3</option>
+<option value='5.15.4'>5.15.4</option>
+<option value='5.15.5'>5.15.5</option>
+<option value='5.15.6'>5.15.6</option>
+<option value='5.15.7'>5.15.7</option>
+<option value='5.15.8'>5.15.8</option>
+<option value='5.15.9'>5.15.9</option>
+<option value='5.4'>5.4</option>
+<option value='5.5'>5.5</option>
+<option value='5.6'>5.6</option>
+<option value='5.7'>5.7</option>
+<option value='5.8'>5.8</option>
+<option value='5.9'>5.9</option>
+<option value='6.2'>6.2</option>
+<option value='6.2.0'>6.2.0</option>
+<option value='6.2.3'>6.2.3</option>
+<option value='6.2.4'>6.2.4</option>
+<option value='6.3'>6.3</option>
+<option value='6.4'>6.4</option>
+<option value='6.4.0'>6.4.0</option>
+<option value='6.4.1'>6.4.1</option>
+<option value='6.4.2'>6.4.2</option>
+<option value='6.4.3'>6.4.3</option>
+<option value='6.5'>6.5</option>
+<option value='6.5.0'>6.5.0</option>
+<option value='6.5.1'>6.5.1</option>
+<option value='6.5.2'>6.5.2</option>
+<option value='6.6'>6.6</option>
+<option value='dev'>dev</option>
+<option value='wip/47-based'>wip/47-based</option>
+<option value='wip/qtpdf'>wip/qtpdf</option>
+</select> <input type='submit' value='switch'/></form></td></tr>
+<tr><td class='sub'>Qt WebEngine
+</td><td class='sub right'></td></tr></table>
+<table class='tabs'><tr><td>
+<a href='/cgit/qt/qtwebengine.git/?h=5.15'>summary</a><a href='/cgit/qt/qtwebengine.git/refs/?h=5.15'>refs</a><a href='/cgit/qt/qtwebengine.git/log/examples/webenginewidgets/markdowneditor/resources/3rdparty/MARKED-LICENSE.txt?h=5.15'>log</a><a class='active' href='/cgit/qt/qtwebengine.git/tree/examples/webenginewidgets/markdowneditor/resources/3rdparty/MARKED-LICENSE.txt?h=5.15'>tree</a><a href='/cgit/qt/qtwebengine.git/commit/examples/webenginewidgets/markdowneditor/resources/3rdparty/MARKED-LICENSE.txt?h=5.15'>commit</a><a href='/cgit/qt/qtwebengine.git/diff/examples/webenginewidgets/markdowneditor/resources/3rdparty/MARKED-LICENSE.txt?h=5.15'>diff</a><a href='/cgit/qt/qtwebengine.git/stats/examples/webenginewidgets/markdowneditor/resources/3rdparty/MARKED-LICENSE.txt?h=5.15'>stats</a></td><td class='form'><form class='right' method='get' action='/cgit/qt/qtwebengine.git/log/examples/webenginewidgets/markdowneditor/resources/3rdparty/MARKED-LICENSE.txt'>
+<input type='hidden' name='h' value='5.15'/><select name='qt'>
+<option value='grep'>log msg</option>
+<option value='author'>author</option>
+<option value='committer'>committer</option>
+<option value='range'>range</option>
+</select>
+<input class='txt' type='search' size='10' name='q' value=''/>
+<input type='submit' value='search'/>
+</form>
+</td></tr></table>
+<div class='path'>path: <a href='/cgit/qt/qtwebengine.git/tree/?h=5.15'>root</a>/<a href='/cgit/qt/qtwebengine.git/tree/examples?h=5.15'>examples</a>/<a href='/cgit/qt/qtwebengine.git/tree/examples/webenginewidgets?h=5.15'>webenginewidgets</a>/<a href='/cgit/qt/qtwebengine.git/tree/examples/webenginewidgets/markdowneditor?h=5.15'>markdowneditor</a>/<a href='/cgit/qt/qtwebengine.git/tree/examples/webenginewidgets/markdowneditor/resources?h=5.15'>resources</a>/<a href='/cgit/qt/qtwebengine.git/tree/examples/webenginewidgets/markdowneditor/resources/3rdparty?h=5.15'>3rdparty</a>/<a href='/cgit/qt/qtwebengine.git/tree/examples/webenginewidgets/markdowneditor/resources/3rdparty/MARKED-LICENSE.txt?h=5.15'>MARKED-LICENSE.txt</a></div><div class='content'>blob: 8e3ba0e0a762e967de16ec67f257dfdb81b2148b (<a href='/cgit/qt/qtwebengine.git/plain/examples/webenginewidgets/markdowneditor/resources/3rdparty/MARKED-LICENSE.txt?h=5.15'>plain</a>)
+<table summary='blob content' class='blob'>
+<tr><td class='linenumbers'><pre><a id='n1' href='#n1'>1</a>
+<a id='n2' href='#n2'>2</a>
+<a id='n3' href='#n3'>3</a>
+<a id='n4' href='#n4'>4</a>
+<a id='n5' href='#n5'>5</a>
+<a id='n6' href='#n6'>6</a>
+<a id='n7' href='#n7'>7</a>
+<a id='n8' href='#n8'>8</a>
+<a id='n9' href='#n9'>9</a>
+<a id='n10' href='#n10'>10</a>
+<a id='n11' href='#n11'>11</a>
+<a id='n12' href='#n12'>12</a>
+<a id='n13' href='#n13'>13</a>
+<a id='n14' href='#n14'>14</a>
+<a id='n15' href='#n15'>15</a>
+<a id='n16' href='#n16'>16</a>
+<a id='n17' href='#n17'>17</a>
+<a id='n18' href='#n18'>18</a>
+<a id='n19' href='#n19'>19</a>
+</pre></td>
+<td class='lines'><pre><code>Copyright (c) 2011-2018, Christopher Jeffrey (https://github.com/chjj/)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</code></pre></td></tr></table>
+</div> <!-- class=content -->
+<div class='footer'>generated by <a href='https://git.zx2c4.com/cgit/about/'>cgit v1.2.3</a> (<a href='https://git-scm.com/'>git 2.25.1</a>) at 2023-07-26 20:34:10 +0000</div>
+</div> <!-- id=cgit -->
+</body>
+</html>
