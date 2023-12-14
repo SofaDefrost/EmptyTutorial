@@ -41,5 +41,4 @@ Your exercise.
 </div>
 ```
 
-
-<img src="images/tutorial.png" style="box-shadow: -3px 3px 3px 3px gray;">
+![](images/tutorial.png)
