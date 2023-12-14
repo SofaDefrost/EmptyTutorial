@@ -106,7 +106,7 @@ class DownloadManager(QObject):
 
 def qtWindow(filenames):
     app = QApplication([''])
-    app.setApplicationName("Hollow Arm Tutorial")
+    app.setApplicationName("Tutorial")
 
     filename = os.path.join(CURRENT_DIR, "index.html")
 

@@ -25,12 +25,11 @@
     }
 
     .page-contents {
-        background-color: #F9F9F9;
-        box-shadow: 0 5px 5px rgba(200, 200, 200, .5);
-        border-radius: 12px;
-        padding: 0em 1em 1em 1em;
         position: absolute;
-        display: none;
+        top: 10px;
+        margin: 0rem 0rem 0rem 50rem;
+        animation: fade-in-up .25s ease forwards;
+        display: block;
     }
 
     li.active {
@@ -51,21 +50,19 @@
         padding: 1em 1em;
     }
 
-    .stuck-right{
+    .stuck-bottom-right{
         position: fixed;
-        top: 20px;
-        right: 20px;
+        bottom: 20px;
+        margin: 0rem 0rem 0rem 50rem;
         width: 360px;
         height: 245px;
         animation: fade-in-up .25s ease forwards;
     }
 
-    .stuck-left{
+    .stuck-top-right{
         position: fixed;
-        top: 40px;
-        left: 20px;
-        animation: fade-in-up .25s ease forwards;
-        display: block;
+        top: 20px;
+        margin: 0rem 0rem 0rem 50rem;
     }
 
     pre {
@@ -155,6 +152,10 @@
       display: none;
     }
 
+    li.section-list {
+      list-style-type: "> ";
+    }
+
   </style>
 
 </head>
@@ -163,10 +164,10 @@
   </br>
 
   <div class="wrapper-left">
-    <button class="button button-previous"> <input type="image" name="previous" src="images/icons/previousIcon_cropped.png" height="10"> Previous </button>
+    <button class="button button-previous"> <input type="image" name="previous" src="images/icons/previousIcon.png" height="10"> Previous </button>
   </div>
   <div class="wrapper-right">
-    <button class="button button-next"> Next <input type="image" name="next" src="images/icons/nextIcon_cropped.png" height="10"> </button>
+    <button class="button button-next"> Next <input type="image" name="next" src="images/icons/nextIcon.png" height="10"> </button>
   </div>
 
   </br> </br> </br>
@@ -186,10 +187,10 @@
   </br>
 
   <div class="wrapper-left">
-    <button class="button button-previous"> <input type="image" name="previous" src="images/icons/previousIcon_cropped.png" height="10"> Previous </button>
+    <button class="button button-previous"> <input type="image" name="previous" src="images/icons/previousIcon.png" height="10"> Previous </button>
   </div>
   <div class="wrapper-right">
-    <button class="button button-next"> Next <input type="image" name="next" src="images/icons/nextIcon_cropped.png" height="10"> </button>
+    <button class="button button-next"> Next <input type="image" name="next" src="images/icons/nextIcon.png" height="10"> </button>
   </div>
 
   </br> </br> </br>
@@ -205,21 +206,23 @@
                     headerIds: false
                     })
 
-  function addPageContents() {
+  function addPageContents(position) {
                                 // Contents
                                 var headers = document.querySelectorAll("h2, h3");
                                 var tables = document.getElementsByClassName("page-contents");
-                                if (tables.length == 0) {
+                                if (tables.length == 0)
+                                {
                                   var table = document.createElement("div");
                                   table.className = "page-contents";
-                                } else {
+                                }
+                                else
+                                {
                                   var table = tables[0];
                                   table.innerHTML = "";
                                 }
-                                table.innerHTML += "<p><strong>Page Contents</strong></p>";
-                                table.innerHTML += "<ul>";
+                                table.innerHTML += "<p><strong>Contents</strong></p>";
+                                table.style.top = position.toString() + "px";
                                 headers.forEach(header => {table.innerHTML += "<li class='section-list'>" + header.innerHTML + "</li>"})
-                                table.innerHTML += "</ul>";
                                 document.body.appendChild(table);
                             }
 
@@ -236,58 +239,87 @@
                                     placeholder.innerHTML = marked.parse(text);
 
                                     const exercises = placeholder.querySelectorAll("div.exercise-content");
-                                    exercises.forEach(div => {
+                                    exercises.forEach(div =>
+                                    {
                                         var editor = document.createElement("button")
                                         editor.classList.add('button-editor');
-                                        editor.innerHTML = "open editor"
+                                        editor.style.right = "5px"
+                                        editor.innerHTML = '<input type="image" name="editor" src="images/icons/editorIcon.png" height="25">'
+                                        editor.style.padding = "5px 5px 0px 5px"
                                         div.append(editor)
 
                                         var runSofa = document.createElement("button")
                                         runSofa.classList.add('button-runSofa');
-                                        runSofa.innerHTML = "runSofa"
+                                        runSofa.innerHTML = '<input type="image" name="runSofa" src="images/icons/SOFAIcon.png" height="25">'
+                                        runSofa.style.padding = "5px 5px 0px 5px"
                                         div.append(runSofa)
                                     })
 
                                     const codeblocks = placeholder.querySelectorAll("pre");
-                                    codeblocks.forEach(div => {
+                                    codeblocks.forEach(div =>
+                                    {
                                         const copy = document.createElement("button")
-                                        copy.innerHTML = "Copy"
+                                        copy.innerHTML = '<input type="image" name="copy" src="images/icons/copyIcon.png" height="15">'
+                                        copy.tittle = 'Copy to clipboard'
+                                        copy.style.top = "2px"
+                                        copy.style.right = "2px"
+                                        copy.style.padding = "5px 5px 0px 5px"
                                         const innerText = div.children[0].innerHTML
-                                        copy.addEventListener("click", function() {
-                                                handleCopy(innerText);
-                                              }
-                                            );
+
+                                        copy.addEventListener("click", function()
+                                          {
+                                            handleCopy(innerText);
+                                          }
+                                        );
                                         div.append(copy)
                                     })
 
-                                    addPageContents();
+                                    var tableContent = document.getElementsByClassName("table-contents")[0];
+                                    var tableContentInitRect = tableContent.getBoundingClientRect();
 
-                                    document.addEventListener("scroll", (event) => {
+                                    addPageContents(tableContentInitRect.bottom);
+
+                                    document.addEventListener("scroll", (event) =>
+                                    {
                                       var videos = placeholder.querySelectorAll("video");
-                                      var tables = document.getElementsByClassName("page-contents");
                                       videos.forEach(div => {
-                                          if (document.documentElement.scrollTop > 950) {
-                                            div.classList.add('stuck-right');
-                                            tables[0].classList.add('stuck-left');
-
-                                            // Highlight header in viewport
-                                            var sections = document.getElementsByClassName("section-list");
-                                            var headers = document.querySelectorAll("h2, h3");
-                                            for(var index=0; index < sections.length; index++) {
-                                                sections[index].classList.remove('active')
-                                            }
-                                            for(var index=0; index < sections.length; index++) {
-                                              if(isInViewport(headers[index])) {
-                                                    sections[index].classList.add('active');
-                                                    break;
-                                              }
-                                            }
-
-                                          } else if (document.documentElement.scrollTop < 450) {
-                                            div.classList.remove('stuck-right');
-                                            tables[0].classList.remove('stuck-left');
+                                          if (document.documentElement.scrollTop > tableContentInitRect.bottom + 660) {
+                                            div.classList.add('stuck-bottom-right');
+                                          } else if (document.documentElement.scrollTop < tableContentInitRect.bottom + 160) {
+                                            div.classList.remove('stuck-bottom-right');
                                           }
                                         })
+
+                                      var contents = document.getElementsByClassName("page-contents");
+                                      Array.prototype.forEach.call(contents, div =>
+                                      {
+                                          if (document.documentElement.scrollTop > tableContentInitRect.bottom)
+                                          {
+                                            div.classList.add('stuck-top-right');
+                                            div.style.top = "0px";
+                                          }
+                                          else if (document.documentElement.scrollTop < tableContentInitRect.bottom)
+                                          {
+                                            div.classList.remove('stuck-top-right');
+                                            div.style.top = tableContentInitRect.bottom.toString() + "px";
+                                          }
+
+                                          // Highlight header in viewport
+                                          var sections = document.getElementsByClassName("section-list");
+                                          var headers = document.querySelectorAll("h2, h3");
+                                          for(var index=0; index < sections.length; index++)
+                                          {
+                                              sections[index].classList.remove('active')
+                                          }
+                                          for(var index=0; index < sections.length; index++)
+                                          {
+                                            if(isInViewport(headers[index]))
+                                            {
+                                                  sections[index].classList.add('active');
+                                                  break;
+                                            }
+                                          }
+                                      })
                                     });
                                   }
 
